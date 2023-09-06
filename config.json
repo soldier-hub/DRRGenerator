@@ -1,0 +1,63 @@
+{
+  "RegisterFlow":["RegionRegister"],
+  "drr_generator_type": "OptiBeamDRR",
+  "load_volume": {
+    "resampling_size": 256,
+    "flip": false,
+    "resampled_spacing": null,
+    "resampled_size": null
+  },
+  "load_target": {
+    "use_mask":false
+  },
+  "carm": {
+    "src_det": 1120,
+    "image_size": 512,
+    "iso_pix_spacing": 0.73,
+    "iso_center": 400,
+    "det_size": 128,
+    "row_distortion": [],
+    "column_distortion": [],
+    "distortion_order": 4,
+    "use_distortion": false,
+    "centerPix": [249.53406742880549, 259.16695308596411],
+    "focalPix": [2213.6469662099121, 2211.1684877906423]
+  },
+  "PSTGenerator": {
+    "device": "cuda:0",
+    "batch_size": 1,
+    "step_size": 0.6
+  },
+  "PSTRegister": {
+    "device": "cuda:0",
+    "batch_size": 1,
+    "learning_rate": 0.002,
+    "momentum": 0.9,
+    "max_steps": 300,
+    "stop_thrd": 1e-5,
+    "virtual_pose": [0, 0, 0, 0, 0, 0],
+    "virtual_fluoro": false,
+    "use_mask": false,
+    "similarity_type": "ncc"
+  },
+  "RegionRegister":{
+    "device": "cuda:0",
+    "segmentation_type":"LungRegion",
+    "image_size": 512,
+    "use_mask": false
+  },
+  "PowellRegister":{
+    "device": "cuda:0",
+    "image_size": 128,
+    "use_mask": false,
+    "similarity_type": "gradncc"
+  },
+  "DRR": {
+    "size_x": 640,
+    "size_y": 512
+  },
+  "CTPath":{
+    "path_CT_origin": "D:/Dev/BTPNA/btpnatestproject/datasets/220303/220303.nii",
+    "path_roi" : "D:/Dev/BTPNA/btpnatestproject/datasets/220303/ROI_spine+clavicle.nii"
+}
+}
